@@ -1,0 +1,23 @@
+
+<nav class="navbar navbar-dark bg-danger navbar-expand-sm">
+  <div class="container-fluid ltr">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item" routerLinkActive="active">
+        <a class="navbar-brand" routerLink="">
+          <i class="fa fa-home"></i>Student</a>      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="navbar-brand" [routerLink]="['/courses/view']">
+      <i class="fa fa-home"></i>Cours</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="navbar-brand" [routerLink]="['/enrollment/manger']">
+      <i class="fa fa-home"></i>Enrollment</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="navbar-brand" [routerLink]="['/teacher/admin']">
+      <i class="fa fa-home"></i>Teachers</a>
+      </li>
+    </ul>
+  </div>
+</nav>

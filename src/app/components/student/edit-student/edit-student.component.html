@@ -1,0 +1,67 @@
+<div class="container mt-3">
+  <div class="row">
+  <div class="col">
+    <p class="h3 fw-bold text-danger">Edit Student</p>
+    <p class="fst-italic">Edit the Student Data </p>
+  </div>
+  </div>
+
+  <!--contact form-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <form (submit)="submitUpdate()">
+          <div class="md-2">
+          <input
+            required="true"
+            [(ngModel)]="students.firstName"
+            [value]="students.firstName"
+            class="form-control"
+            name="firstName"
+             placeholder="Name" type="text">
+          </div>
+          <div class="md-2">
+            <input
+            src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"
+            name="photo"
+              class="form-control" placeholder="Photo Url" type="text">
+          </div>
+          <div class="md-2">
+            <input
+            required="true"
+            [(ngModel)]="students.lastName"
+            [value]="students.lastName"
+            name="lastName"
+             class="form-control" placeholder="LastName" type="email">
+          </div>
+          <div class="md-2">
+          <input
+            required="true"
+            [(ngModel)]="students.phone"
+            [value]="students.phone"
+            name="phone"
+             class="form-control"
+             placeholder="Pphone" type="text">
+          </div>
+          <div class="md-2">
+          <input
+            required="true"
+            [(ngModel)]="students.gender"
+            [value]="students.gender"
+            name="gender"
+             class="form-control"
+             placeholder="Gender" type="text">
+          </div>
+          <div class="md-2">
+          </div>
+          <div class="md-2 mt-2">
+            <input  class="btn btn-danger"  type="submit" value="Update">
+            <a class="btn btn-dark ms-2" routerLink="/">close</a>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-4">
+        <img alt="" src="" class="contact-img">
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,60 @@
+<div class="container mt-3">
+  <div class="row">
+  <div class="col">
+    <p class="h3 fw-bold text-danger">Edit Course </p>
+    <p class="fst-italic">Edit the Course Data </p>
+  </div>
+  </div>
+  <!--contact form-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <form (submit)="submitUpdate()">
+          <div class="md-2">
+          <input
+            required="true"
+            [(ngModel)]="course.courseName"
+            [value]="course.courseName"
+            class="form-control"
+            name="courseName"
+             placeholder="Course Name" type="text">
+          </div>
+          <div class="md-2">
+            <input
+            required="true"
+            [(ngModel)]="course.startDate"
+            [value]="course.startDate"
+            name="startDate"
+             class="form-control" placeholder="startDate" type="date">
+          </div>
+          <div class="md-2">
+          <input
+            required="true"
+            [(ngModel)]="course.endDate"
+            [value]="course.endDate"
+            name="endDate"
+             class="form-control"
+             placeholder="endDate" type="date">
+          </div>
+          <div class="md-2">
+          <input
+            required="true"
+            [(ngModel)]="course.teacherName"
+            [value]="course.teacherName"
+            name="teacherName"
+             class="form-control"
+             placeholder="Teacher Name" type="text">
+          </div>
+          <div class="md-2">
+          </div>
+          <div class="md-2 mt-2">
+            <input  class="btn btn-danger"  type="submit" value="Update">
+            <a class="btn btn-dark ms-2" routerLink="/courses/view">close</a>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-4">
+        <img alt="" src="" class="contact-img">
+      </div>
+    </div>
+  </div>

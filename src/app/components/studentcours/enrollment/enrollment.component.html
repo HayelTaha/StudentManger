@@ -1,0 +1,91 @@
+<div class="container mt-3">
+  <div class="row shadow-lg my-2">
+    <div class="col">
+      <form #registerForm="ngForm" (ngSubmit)="createSubmite()">
+        <fieldset>
+          <legend>Enroll Student In Course</legend>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="mb-2">
+                <label for="form-selec" class="form-label"> select Course menu</label>
+                <select id="form-selec" class="form-select"
+                required="true"
+                [(ngModel)]="enrollList.courseId"
+                [value]="enrollList.courseId"
+                name="enrollList.courseId"
+                class="form-control">
+                <option value="default" selected>Select your Coours</option>
+               <option [value]="item.courseId" *ngFor="let item of courses;let i = index;" value="{{i}}">{{item.courseName}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-2">
+                <label for="form-selec" class="form-label"> select student menu</label>
+                <select id="form-selec" class="form-select"
+                required="true"
+                [(ngModel)]="enrollList.studentId"
+                [value]="enrollList.studentId"
+                name="enrollList.studentId"
+                class="form-control">
+               <option value="">Select Student </option>
+               <option [value]="item.studentId" *ngFor="let item of students">{{item.firstName}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="form-selec" class="form-label">Save changes</label>
+                <div class="col">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+           </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="row shadow-lg my-2 mt-2">
+    <tr class="row col-sm-4 mt-2">
+      <th >
+        <input type="search" class="form-control fst-italic" placeholder="Search Student"
+        (input)="searchStudents(searchInput.value)" #searchInput>
+      </th>
+    </tr>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">EnrollNumber</th>
+          <th scope="col">Course</th>
+          <th scope="col">Student</th>
+          <th scope="col" colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of studentEnrollList">
+          <th scope="row">1</th>
+          <td>{{item.id}}</td>
+          <td>{{item.courseName}}</td>
+          <td>{{item.firstName}}</td>
+          <td class="align-item-center" width="5%" >
+            <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+              <a class="btn btn-primary my-1 align-items-online" routerLink="">
+                <i class="fa fa-pen"></i>
+              </a>
+            </div>
+          </td>
+          <td class="align-item-center" width="5%">
+            <button class="btn btn-danger my-1 align-items-online"
+            (click)="deletEnrollment(item.id)">
+            <i class="fa fa-trash-alt"></i>
+          </button>
+       </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

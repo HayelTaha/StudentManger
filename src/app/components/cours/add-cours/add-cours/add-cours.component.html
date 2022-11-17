@@ -1,0 +1,46 @@
+<div class="container mt-3">
+  <div class="row">
+  <div class="col">
+    <p class="h3 fw-bold text-danger">Add Student</p>
+    <p class="fst-italic">Creat New Student
+       </p>
+  </div>
+  </div>
+  <!--error message-->
+
+  <!--contact form-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <form #registerForm="ngForm" (ngSubmit)="createSubmite()">
+          <div class="md-2">
+            <input required="true"
+            [(ngModel)]="course.courseName" name="courseName"
+             class="form-control" placeholder="courseName" type="text">
+          </div>
+          <div class="md-2">
+            <input required="true"
+            [(ngModel)]="course.startDate" name="startDate"
+              class="form-control" placeholder="startDate" type="date">
+          </div>
+          <div class="md-2">
+            <input required="true"
+            [(ngModel)]="course.endDate" name="endDate"
+             class="form-control" placeholder="endDate" type="date">
+          </div>
+          <div class="md-2">
+            <input required="true"
+            [(ngModel)]="course.teacherName" name="teacherName"
+             class="form-control" placeholder="teacherName" type="text">
+          </div>
+          <div class="md-2 mt-2">
+            <input class="btn btn-danger" value="Create" type="submit">
+            <a class="btn btn-dark ms-2" routerLink="/">close</a>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-4">
+        <img alt="" src="" class="contact-img">
+      </div>
+    </div>
+  </div>

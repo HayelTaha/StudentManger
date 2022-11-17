@@ -1,0 +1,80 @@
+<div class=" container mt-3  ">
+  <div class="row ">
+    <div class="col">
+      <p class="h3 text-danger fw-bold">Ng Student
+        <a class="btn btn-danger btn-sm" routerLink="/students/add"  >
+          <i class="fa fa-plus-circle"></i>Add New</a>
+      </p>
+      <p class="fst-italic">
+      the student Screen
+      </p>
+      <!--loading spinner-->
+       <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col">
+                <input type="search" class="form-control fst-italic" placeholder="Search Student"
+                (input)="searchStudents(searchInput.value)" #searchInput>
+              </div>
+              <div class="col">
+              <!-- <input type="submit" class="btn btn-outline-dark" value="Search"> -->
+              </div>
+            </div>
+          </div>
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+<!--error message-->
+<div>
+  <div class="container align-item-center">
+    <div class="row">
+      <div class="col" *ngIf="loading">
+        <img alt="" src="assets/Spinner.gif" class="contact-img">
+        </div>
+    </div>
+  </div>
+</div>
+
+<!---card
+*ngIf="!loading && contacts.length>0"
+*ngFor="let contact of contacts"
+-->
+<div *ngIf="!loading && students.length>0"
+  class="container mt-3">
+  <div class="row">
+    <div *ngFor="let student of students" class="col-md-6">
+      <div class="card list-group-item-danger shadow-lg my-2">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-sm-4">
+              <img alt="" src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg" class="contact-img">
+            </div>
+            <div class="col-sm-7">
+            <ul class="list-group">
+              <li class="list-group-item">FirstName : <span class="fw-bold">{{student.firstName}}</span> </li>
+              <li class="list-group-item">LastName : <span class="fw-bold">{{student.lastName}}</span> </li>
+              <li class="list-group-item">Mobile : <span class="fw-bold">{{student.phone}}</span> </li>
+              <li class="list-group-item">Gender : <span class="fw-bold">{{student.gender}}</span> </li>
+            </ul>
+            </div>
+            <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+            <a class="btn btn-warning my-1" routerLink="/students/view/{{student.studentId}}">
+              <i class="fa fa-eye"></i>
+            </a>
+            <a class="btn btn-primary my-1" routerLink="/students/edit/{{student.studentId}}">
+              <i class="fa fa-pen"></i>
+            </a>
+            <button class="btn btn-danger my-1" (click)="deletStudent(student.studentId)">
+            <i class="fa fa-trash-alt"></i>
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

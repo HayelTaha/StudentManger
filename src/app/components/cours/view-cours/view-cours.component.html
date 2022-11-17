@@ -1,0 +1,113 @@
+<div class="container mt-5">
+
+  <div class="row shadow-lg ">
+    <!-- <div class="col">
+      <p class="h4 text-danger">
+        <a class="btn btn-danger btn-sm" routerLink="/courses/add"  >
+          <i class="fa fa-plus-circle"></i>New</a>
+      </p>
+    </div>
+    <div class="col">
+      <tr class=" col">
+        <input type="search" class="form-control fst-italic" placeholder="Search Student"
+        (input)="searchCourse(searchInput.value)" #searchInput>
+      </tr>
+    </div> -->
+
+    <div class="col">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr >
+            <th colspan="2">
+              <p class="h4 text-danger">
+                <a class="btn btn-danger btn-sm" routerLink="/courses/add"  >
+                  <i class="fa fa-plus-circle"></i>New</a>
+              </p>
+            </th>
+            <th>
+              <input type="search" class="form-control fst-italic" placeholder="Search Student"
+              (input)="searchCourse(searchInput.value)" #searchInput>
+            </th>
+          </tr>
+          <tr>
+            <th colspan="2">CoursName</th>
+            <th>StratDate</th>
+            <th>EndDate</th>
+            <th>Teacher</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses" >
+              <td class="align-items-center" width="3%">
+                <div class="d-flex">
+                  <button class="btn btn-warning my-1 align-items-online"
+                   data-bs-toggle="modal" data-bs-target="#exampleModal"
+                   (click)="getStudentEnrollCourse(this.course.courseId)">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                </div>
+              </td>
+              <td> {{  course.courseName }}</td>
+              <td>{{  course.startDate }}</td>
+              <td>{{  course.endDate }}</td>
+              <td>{{  course.teacherName }}</td>
+              <td class="align-items-center" width="5%">
+                <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+                  <a class="btn btn-primary my-1 align-items-online" routerLink="/courses/edit/{{course.courseId}}">
+                    <i class="fa fa-pen"></i>
+                  </a>
+                </div>
+              </td>
+              <td class="align-items-center" width="5%">
+              <button class="btn btn-danger my-1 align-items-online"
+              (click)="deletCourse(this.course.courseId)">
+              <i class="fa fa-trash-alt"></i>
+            </button>
+           </td>
+            </tr>
+        </tbody>
+        </table>
+
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Student Enroll In This Cours</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="card list-group-item-danger shadow-lg my-2">
+        <div class="modal-body">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-sm-6">
+                CoursName: <span class="fw-bold">{{studentEnroll.courseName}}</span>
+              </div>
+              <div class="card-header">
+                Student Name:
+              </div>
+              <div class="col-sm-7">
+              <ul class="list-group-item">
+                <li *ngFor="let item of studentEnroll.firstName" class="list-group-item"> <span class="fw-bold">{{item}}</span></li>
+              </ul>
+              </div>
+
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">Close</button>
+          <button *ngIf="btnSaveShow" type="button" class="btn btn-primary" >Register</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-Panel">
+
+
+
